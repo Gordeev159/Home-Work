@@ -19,15 +19,19 @@ class House:
 
 
     def __lt__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        return self.number_of_floors < other.number_of_floors
+
     def __le__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        return self.number_of_floors <= other.number_of_floors
+
     def __gt__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        return self.number_of_floors > other.number_of_floors
+
     def __ge__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        return self.number_of_floors >= other.number_of_floors
+
     def __ne__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        return self.number_of_floors != other.number_of_floors
 
     def __add__(self, value):
         return self.number_of_floors
@@ -45,10 +49,22 @@ house2 = House('Университетская, 5', 5)
 
 print(house1)
 print(house2)
-print(house1 == house2)
-house2 = house2 + 25
+print(house1 == house2) # __eq__
+house2.number_of_floors = house2.number_of_floors + 25 # __add__
 print(house2)
 print(house1 == house2)
+house1.number_of_floors += 10 # __iadd__
+print(house1)
+house2.number_of_floors = 10 + house2.number_of_floors # __radd__
+print(house2)
+print(house1 > house2) # __gt__
 
-house2 += 10
-print(house2)
+print(house1 >= house2) # __ge__
+
+print(house1 < house2) # __lt__
+
+print(house1 <= house2) # __le__
+
+print(house1 != house2) # __ne__
+
+
